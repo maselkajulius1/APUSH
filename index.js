@@ -1,7 +1,7 @@
 const navToggle = document.querySelector('.nav-toggle');
 const navbar = document.querySelector('.navbar');
 
-navToggle.addEventListener("click", () => {
+function openCloseNavbar() {
     if (navbar.classList.contains('expanded')) {
         navbar.classList.remove('expanded');
         navToggle.firstElementChild.setAttribute('display', 'grid');
@@ -12,6 +12,25 @@ navToggle.addEventListener("click", () => {
         navToggle.firstElementChild.setAttribute('display', 'none');
         navToggle.lastElementChild.setAttribute('display', 'grid');
     };
+}
+
+navToggle.addEventListener("click", openCloseNavbar);
+
+document.querySelectorAll('a[data-nav-link], .navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+        sessionStorage.setItem('navbarOpen', 'true');
+    });
+});
+
+// On page load
+window.addEventListener('load', () => {
+    if (sessionStorage.getItem('navbarOpen') === 'true') {
+        navbar.style.transition = 'none';
+        openCloseNavbar();
+        navbar.offsetHeight;
+        navbar.style.transition = '';
+        sessionStorage.removeItem('navbarOpen'); // Clean up
+    }
 });
 
 const texture = document.querySelector('.bg-texture');

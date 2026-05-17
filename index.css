@@ -106,8 +106,11 @@ button:hover {
 }
 
 .navbar a {
-    padding-left: 13%;
+    display: inline-block;
+    margin-left: 13%;
     font-family: "Nunito", sans-serif;
+    color: var(--text-color);
+    text-decoration: none;
     font-size: 34px;
     font-weight: 650;
     padding-top: 6px;
