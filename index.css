@@ -206,6 +206,8 @@ button:hover {
     min-height: 0;
     max-height: 92px;
     overflow: visible;
+    z-index: 1;
+    transition: z-index 350ms;
 }
 
 .content {
@@ -267,7 +269,7 @@ button:hover {
 }
 
 .content-container.expanded {
-    z-index: 1000;
+    z-index: 100;
 }
 
 .content p {
